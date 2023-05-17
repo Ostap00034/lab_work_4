@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void RecTriangle(int n, int a)
+void RecTriangleIN(int n, int a)
 {
   if (n == -1)
   {
@@ -11,18 +11,23 @@ void RecTriangle(int n, int a)
   }
   else if (a != 0)
   {
-    RecTriangle(n - 1, a);
+    RecTriangleIN(n - 1, a);
     cout << "*" << string(n, 'X') << "*\n";
     if (a == n)
     {
-      RecTriangle(a - 1, 0);
+      RecTriangleIN(a - 1, 0);
     }
   }
   else
   {
     cout << "*" << string(n, 'X') << "*\n";
-    RecTriangle(n - 1, a);
+    RecTriangleIN(n - 1, a);
   }
+}
+
+void RecTriangle(int a)
+{
+  RecTriangleIN(a, a);
 }
 
 int main()
@@ -30,5 +35,5 @@ int main()
   cout << "Enter your triangle max width: ";
   int n;
   cin >> n;
-  RecTriangle(n, n);
+  RecTriangle(n);
 }
